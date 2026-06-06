@@ -57,6 +57,6 @@ This repository contains a collection of computer vision projects developed duri
 
 ## Author
 
-Rakesh N R
+Rakesh Nuggehalli Ramesh
 Master's Student – Mechatronics
 
