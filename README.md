@@ -1,2 +1,2 @@
 # Computer_Vision
-Use of Sobel Filter, Canny edge detector, Perspective transformation using ARUCO and Object detection and depth estimation using YOLO
+Computer Vision applications including edge detection, camera calibration, ARUCO marker-based augmented reality, real-time object detection using YOLO, and monocular depth estimation.
