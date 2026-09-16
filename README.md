@@ -1,33 +1,27 @@
 # Computer Vision & Sensor Perception
 
-A collection of computer vision, object detection, pose estimation, and distance-estimation projects developed during my Master's studies in Mechatronics.
+A collection of computer vision, object detection, pose-estimation, and distance-estimation projects developed during my Master's studies in Mechatronics.
 
-The repository includes experiments ranging from fundamental image processing to LiDAR–camera perception using the KITTI dataset.
-
----
+The repository progresses from fundamental image processing to **KITTI-based camera, LiDAR, and object-perception experiments**.
 
 ## Projects
 
-### 1. Edge Detection
+### Edge Detection
 
-Basic image-processing implementations using:
+Implementations of:
 
-- Sobel X and Y filters
+- Sobel X and Y filtering
 - Laplacian edge detection
 - Canny edge detection
 
-These experiments demonstrate fundamental image-gradient and edge-feature extraction techniques.
-
 **Technologies:** Python, OpenCV, NumPy, Matplotlib
 
----
+### ArUco Pose Estimation & Augmented Reality
 
-### 2. ArUco Pose Estimation & Augmented Reality
+An ArUco-based vision experiment covering:
 
-An ArUco-marker-based computer vision experiment implementing:
-
-- ArUco marker detection
-- Camera model and intrinsic-parameter setup
+- Marker detection
+- Camera-model setup
 - Pose estimation using `solvePnP`
 - 3D point projection
 - Perspective transformation
@@ -35,65 +29,48 @@ An ArUco-marker-based computer vision experiment implementing:
 
 **Technologies:** Python, OpenCV, NumPy
 
----
+### Monocular Object Distance Estimation
 
-### 3. Monocular Object Distance Estimation
-
-A KITTI-based experiment combining YOLO object detection with camera calibration to estimate the distance of detected vehicles.
-
-The approach includes:
-
-- YOLO-based vehicle detection
-- Intersection-over-Union (IoU) matching with ground truth
-- Camera intrinsic calibration
-- Distance estimation from object bounding-box geometry
-- Comparison of estimated distance against ground-truth values
-
-**Technologies:** Python, YOLO, OpenCV, NumPy
-
----
-
-### 4. Ray-Based Ground-Plane Distance Estimation
-
-A second KITTI distance-estimation approach using camera geometry.
-
-The implementation:
-
-1. Detects vehicles using YOLO.
-2. Matches detections with ground-truth bounding boxes using IoU.
-3. Uses the bottom-center pixel of the detected vehicle.
-4. Projects the pixel through the inverse camera intrinsic matrix.
-5. Intersects the resulting 3D ray with a ground plane.
-6. Compares the estimated distance with ground-truth distance.
-
-**Technologies:** Python, YOLO, OpenCV, NumPy, camera geometry
-
----
-
-### 5. LiDAR–Camera Sensor Fusion
-
-A more advanced KITTI-based perception pipeline combining camera detections with LiDAR measurements.
+A KITTI-based experiment combining YOLO vehicle detection with camera calibration and image geometry to estimate object distance.
 
 The implementation includes:
 
-- KITTI image, LiDAR and calibration data
+- YOLO-based car detection
+- IoU matching with ground truth
+- Camera intrinsic parameters
+- Bounding-box-based distance estimation
+- Comparison with ground-truth distance
+
+**Technologies:** Python, YOLO, OpenCV, NumPy
+
+### Ray-Based Ground-Plane Distance Estimation
+
+A second distance-estimation approach using camera geometry.
+
+The method uses the bottom-center of a detected vehicle bounding box, projects the corresponding image ray using the camera intrinsics, and estimates forward distance through ground-plane intersection.
+
+**Technologies:** Python, YOLO, OpenCV, NumPy
+
+### LiDAR–Camera Sensor Fusion
+
+A KITTI-based perception pipeline combining camera detections with LiDAR measurements.
+
+The implementation includes:
+
 - LiDAR-to-camera coordinate transformation
-- Projection of LiDAR points into image coordinates
+- Projection of LiDAR points into the image
 - YOLO-based vehicle segmentation
 - Association of projected LiDAR points with detected objects
 - LiDAR-based distance estimation
-- IoU-based object matching
-- Ground-truth distance comparison
-- Distance-error and percentage-error evaluation
-- Experimental result export to Excel
+- IoU-based matching
+- Distance-error evaluation
+- Experimental result export
 
 **Technologies:** Python, YOLO, OpenCV, NumPy, Pandas, LiDAR
 
----
-
 ## Dataset
 
-The `KITTI_Selected` directory contains a selected subset of KITTI data used for the distance-estimation experiments.
+`KITTI_Selected/` contains the selected KITTI data used for the distance-estimation experiments:
 
 ```text
 KITTI_Selected/
@@ -101,3 +78,47 @@ KITTI_Selected/
 ├── images/
 ├── labels/
 └── README.md
+```
+
+The folder contains the camera images, calibration data, and ground-truth labels required by the KITTI experiments.
+
+## Repository Structure
+
+```text
+Computer_Vision/
+│
+├── KITTI_Selected/
+├── aruco_pose_estimation_overlay.py
+├── canny_edge_detection.py
+├── sobel_laplacian_edge_detection.py
+├── kitti_monocular_distance_estimation.py
+├── kitti_ray_ground_distance_estimation.py
+├── kitti_lidar_camera_sensor_fusion.py
+├── yolov8n_detection.pt
+└── README.md
+```
+
+## Technologies
+
+**Programming:** Python  
+**Computer Vision:** OpenCV, NumPy  
+**Deep Learning:** YOLO  
+**Perception:** LiDAR, camera geometry, sensor projection  
+**Evaluation:** IoU, distance estimation, error analysis  
+**Data Processing:** Pandas, Matplotlib
+
+## Applications
+
+- Advanced Driver Assistance Systems (ADAS)
+- Autonomous vehicles
+- Robotics
+- Machine vision
+- 3D perception
+- Multi-sensor perception
+
+## Author
+
+**Rakesh Nuggehalli Ramesh**
+
+M.Sc. Mechatronics  
+Ravensburg-Weingarten University of Applied Sciences, Germany
